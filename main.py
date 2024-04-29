@@ -24,6 +24,43 @@ pygame.display.set_caption('2048')
 FONT = pygame.font.SysFont('comicsans', 60, bold=True)
 MOVE_VEL = 20 # pixels per second
 
+
+class Tile:
+    COLORS = [
+        (237, 229, 218),
+        (238, 225, 201),
+        (243, 178, 122),
+        (246, 150, 101),
+        (247, 124, 95),
+        (247, 95, 59),
+        (237, 208, 115),
+        (237, 204, 99),
+        (236, 202, 80),
+    ]
+
+    def __init__(self, value, row, col):
+        self.value = value 
+        self.row = row
+        self.col = col
+        self.x = col * RECT_WIDTH
+        self.y = row * RECT_HEIGHT
+
+    def get_color(self):
+        # index = int(math.log2(self.value) - 1)
+        # color = self.COLORS[index]
+        # return color
+        return self.COLORS[int(math.log2(self.value) - 1)]
+
+    def draw(self, window):
+        pass  
+
+    def set_pos(self):
+        pass 
+
+    def move(self):
+        pass
+
+
 def draw_grid(window):
     for row in range(1, ROWS):
         y = row * RECT_HEIGHT
